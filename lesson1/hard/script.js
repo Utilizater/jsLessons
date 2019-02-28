@@ -9,6 +9,6 @@ for (var i = 0; i < arr.length; i++){
 console.log(value);
 var exponentiation = value ** 3;
 var arr = exponentiation+"";
-console.log(arr[0]+""+arr[1]);
+alert(arr[0]+""+arr[1]);
 
 
