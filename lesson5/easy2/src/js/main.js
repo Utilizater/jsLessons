@@ -1,28 +1,28 @@
-var task1 = document.getElementById("start");
+var start = document.getElementById("start");
 /*------------*/
-var task2_1 = document.getElementById("budget-value");
-var task2_2 = document.getElementById("daybudget-value");
-var task2_3 = document.getElementById("level-value");
-var task2_4 = document.getElementById("expenses-value");
-var task2_5 = document.getElementById("optionalexpenses-value");
-var task2_6 = document.getElementById("income-value");
-var task2_7 = document.getElementById("monthsavings-value");
-var task2_8 = document.getElementById("yearsavings-value");
-var task2_9 = document.getElementById("year-value");
-var task2_10 = document.getElementById("month-value");
-var task2_11 = document.getElementById("day-value");
+var budgetValue = document.getElementById("budget-value");
+var daybudgetValue = document.getElementById("daybudget-value");
+var levelValue = document.getElementById("level-value");
+var expensesValue = document.getElementById("expenses-value");
+var optionalexpensesValue = document.getElementById("optionalexpenses-value");
+var incomeValue = document.getElementById("income-value");
+var monthsavingsValue = document.getElementById("monthsavings-value");
+var yearsavingsValue = document.getElementById("yearsavings-value");
+var yearValue = document.getElementById("year-value");
+var monthValue = document.getElementById("month-value");
+var dayValue = document.getElementById("day-value");
 /*------------*/
-var task3 = document.getElementsByClassName("expenses-item");
+var expensesItem = document.getElementsByClassName("expenses-item"); 
 /*------------*/
-var task4 = document.getElementsByTagName("button");
-for(let i = 0; i < task4.length; i++){
-  if(task4[i].innerHTML == "Утвердить")
-  var task4_1 = task4[i];
+var btn = document.getElementsByTagName("button");
+for(let i = 0; i < btn.length; i++){
+  if(btn[i].innerHTML == "Утвердить")
+  var approve = btn[i];
   
   if(task4[i].innerHTML == "Рассчитать")
-  var task4_2 = task4[i];
+  var count = btn[i];
 }
 /*------------*/
-var task5 = document.querySelectorAll(".optionalexpenses-item");
+var optionalexpensesItem = document.querySelectorAll(".optionalexpenses-item");
 /*------------*/
-var task6 = document.querySelector(".choose-income-label .checksavings label[for='sum'] label[for='percent'] .year .month .day");
+var remaining = document.querySelector(".choose-income-label .checksavings label[for='sum'] label[for='percent'] .year .month .day");
