@@ -34,14 +34,18 @@ function createList(arr){
 //createList(["asda1", "adasd2", "adsdasd3", "asdasd4"]);
 
 input.addEventListener('input', function(){
-  if(input.value.length > 1){
+  if(input.value.length != 0){
     let arr = getCountries(input.value);
-    console.log(arr);
+    //console.log(arr);
     let parent = document.getElementsByClassName("parent")[0];
-    console.log(parent);
+    //console.log(parent);
     if (parent != undefined)
     document.getElementsByTagName("body")[0].removeChild(parent);
     createList(arr);
+  } else {
+    let parent = document.getElementsByClassName("parent")[0];
+    if (parent != undefined)
+    document.getElementsByTagName("body")[0].removeChild(parent);
   }
   
 });
