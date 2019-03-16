@@ -90,7 +90,8 @@ let anchors = [];
     anchors.forEach(function(item){
       item.addEventListener('click', function(e){
           e.preventDefault();
-          if(myInter != undefined){
+          
+          if(window.myInter != undefined){
             myStopInterval();
           }
 
@@ -106,7 +107,8 @@ let anchors = [];
           if(item.href.includes("contacts"))
           var element = document.getElementById("contacts"); 
 
-          var myInter = setInterval(myTimer, 10);
+          window.myInter = setInterval(myTimer, 10);
+          console.log(window.myInter);
 
           function myStopInterval(){
             clearInterval(myInter);
