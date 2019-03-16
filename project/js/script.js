@@ -108,11 +108,11 @@ let anchors = [];
           var element = document.getElementById("contacts"); 
 
           window.myInter = setInterval(myTimer, 10);
-          console.log(window.myInter);
+          //console.log(window.myInter);
 
           function myStopInterval(){
             clearInterval(myInter);
-            console.log("stop!");
+          //  console.log("stop!");
           }
           
           function myTimer(){
