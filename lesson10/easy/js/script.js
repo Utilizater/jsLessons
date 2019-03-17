@@ -16,5 +16,5 @@ class options{
   }
 }
 
-let element = new options();
+let element = new options("100px", "100px", "red", "30px", "center");
 element.createElement("Hello World!", "height: 200px; width: 300px; font-size: 20px");
