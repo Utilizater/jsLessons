@@ -11,7 +11,7 @@ class options{
   createElement(st) {
     let element = document.createElement("div");
     element.style.cssText = `height: ${this.height}; width: ${this.width};
-    background: ${this.bg}; font-size: ${this.fontSize}; textAlign: ${this.textAlign}`;
+    background: ${this.bg}; font-size: ${this.fontSize}; text-align: ${this.textAlign}`;
     element.textContent = st;
     document.getElementsByTagName("body")[0].appendChild(element);
   }

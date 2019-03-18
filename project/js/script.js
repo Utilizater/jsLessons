@@ -1,9 +1,9 @@
-window.addEventListener('DOMContentLoaded', function(){
+window.addEventListener('DOMContentLoaded', () => {
   'use strict';
   let tab = document.querySelectorAll(".info-header-tab"),
       info = document.querySelector(".info-header"),
       tabContent = document.querySelectorAll(".info-tabcontent");
-  function hideTabContent(a){
+  let hideTabContent = (a) => {
     for(let i = a; i < tabContent.length; i++){
       tabContent[i].classList.remove("show");         
       tabContent[i].classList.add("hide");         
@@ -12,14 +12,14 @@ window.addEventListener('DOMContentLoaded', function(){
 
   hideTabContent(1);
 
-  function showTabContent(b){
+  let showTabContent = (b) => {
     if (tabContent[b].classList.contains("hide")){
       tabContent[b].classList.remove("hide");         
       tabContent[b].classList.add("show");         
     }
   }
     
-    info.addEventListener('click', function(event){
+    info.addEventListener('click', (event) => {
       let target = event.target;
       if(target && target.classList.contains("info-header-tab")){
         for(let i = 0; i < tab.length; i++){
@@ -35,7 +35,7 @@ window.addEventListener('DOMContentLoaded', function(){
 //timer
 let dedline = '2019-05-21';
 
-function getTimeRemaining(endtime){
+let getTimeRemaining = (endtime) => {
   let t = Date.parse(endtime) - Date.parse(new Date()),
       seconds = Math.floor((t/1000) % 60),
       minutes = Math.floor((t/60000) % 60),
@@ -48,13 +48,13 @@ function getTimeRemaining(endtime){
       };
 }
 
-  function setClock(id, endtime){
+  let setClock = (id, endtime) => {
     let timer = document.getElementById(id),
         hours = document.querySelector(".hours"),
         minutes = document.querySelector(".minutes"),
-        seconds = document.querySelector(".seconds"),
-        timeInteval = setInterval(updateClock, 1000);
-    function updateClock(){
+        seconds = document.querySelector(".seconds");
+        
+      let updateClock = () => {
       let t = getTimeRemaining(endtime);
       if ((t.hours+"").length == 1)
       hours.textContent = "0"+ t.hours;
@@ -74,6 +74,8 @@ function getTimeRemaining(endtime){
       if (t.total <= 0)
       clearInterval(timeInteval);
     }
+
+     let timeInteval = setInterval(updateClock, 1000);
   }
 
   setClock("timer", dedline);
@@ -87,8 +89,13 @@ let anchors = [];
 
 
 
-    anchors.forEach(function(item){
-      item.addEventListener('click', function(e){
+    anchors.forEach((item) => {
+      let myStopInterval = () => {
+        clearInterval(myInter);
+      //  console.log("stop!");
+      }
+
+      item.addEventListener('click', (e) => {
           e.preventDefault();
           
           if(window.myInter != undefined){
@@ -107,15 +114,8 @@ let anchors = [];
           if(item.href.includes("contacts"))
           var element = document.getElementById("contacts"); 
 
-          window.myInter = setInterval(myTimer, 10);
-          //console.log(window.myInter);
-
-          function myStopInterval(){
-            clearInterval(myInter);
-          //  console.log("stop!");
-          }
-          
-          function myTimer(){
+                                 
+          let myTimer = () => {
             let coordY = element.getBoundingClientRect().top;
           //  console.log(coordY);
             if (Math.abs(coordY) > 30 && coordY < 0)
@@ -130,6 +130,7 @@ let anchors = [];
             }
           }
 
+          window.myInter = setInterval(myTimer, 10);
       });
     });
 //modal
@@ -139,7 +140,7 @@ let more = document.querySelectorAll('.more, .description-btn'),
 
 
 
-    function browserDetection(){
+    let browserDetection = () => {
 
     var sBrowser, sUsrAg = navigator.userAgent;
     if (sUsrAg.indexOf("Firefox") > -1) {
@@ -170,7 +171,7 @@ let more = document.querySelectorAll('.more, .description-btn'),
 
 
 for(let i = 0; i < more.length; i++){
-  more[i].addEventListener('click', function(){
+  more[i].addEventListener('click', () => {
     
 
  if (document.body.clientWidth < 900){
@@ -187,20 +188,13 @@ for(let i = 0; i < more.length; i++){
    overlay.classList.remove("fade");
    overlay.style.opacity = "0.1";
    overlay.style.display = 'block';
-   let z = setInterval(modalAnimation, 50);
-
-
-    function modalAnimation(){
-      /*from {
-        opacity: 0.1;
-      }
-      to {
-        opacity: 1;
-      }*/
+  
+  let modalAnimation = () => {
       if (+overlay.style.opacity != 1)
       overlay.style.opacity = +overlay.style.opacity + 0.1 +""; 
     else clearInterval(z);
-  }   
+  }
+  let z = setInterval(modalAnimation, 50);   
  }
 
 
@@ -211,11 +205,9 @@ for(let i = 0; i < more.length; i++){
 
 
 
-close.addEventListener('click', function(){
+close.addEventListener('click', () => {
   overlay.style.display = 'none';
-  
-  //more.classList.remove('more-splash');
-  this.parentNode.classList.remove('more-splash');
+  //this.parentNode.classList.remove('more-splash');
   document.body.style.overflow = '';
 });
 
