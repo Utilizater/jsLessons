@@ -8,13 +8,14 @@ class options{
   }
 
 
-  createElement(st, cssText) {
+  createElement(st) {
     let element = document.createElement("div");
-    element.style.cssText = cssText;
+    element.style.cssText = `height: ${this.height}; width: ${this.width};
+    background: ${this.bg}; font-size: ${this.fontSize}; textAlign: ${this.textAlign}`;
     element.textContent = st;
     document.getElementsByTagName("body")[0].appendChild(element);
   }
 }
 
 let element = new options("100px", "100px", "red", "30px", "center");
-element.createElement("Hello World!", "height: 200px; width: 300px; font-size: 20px");
+element.createElement("Hello World!");
