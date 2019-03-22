@@ -92,8 +92,7 @@ window.addEventListener('DOMContentLoaded', () => {
       anchors.forEach((item) => {
         let myStopInterval = () => {
           clearInterval(myInter);
-          //  console.log("stop!");
-        };
+              };
 
         item.addEventListener('click', (e) => {
           e.preventDefault();
@@ -117,7 +116,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
           let myTimer = () => {
             let coordY = element.getBoundingClientRect().top;
-            //  console.log(coordY);
             if (Math.abs(coordY) > 30 && coordY < 0)
               window.scrollBy(0, -30);
 
@@ -126,7 +124,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
             if (Math.abs(coordY) < 40) {
               myStopInterval();
-              //   console.log("stop!");
             }
           };
 
@@ -175,15 +172,12 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
           if (document.body.clientWidth < 900) {
-            console.log("mobile");
             overlay.classList.remove("fade");
             overlay.style.display = 'block';
           } else if (browserDetection() == "Microsoft Internet Explorer") {
-            console.log("css animation");
             this.classList.add('more-splash');
             overlay.style.display = 'block';
           } else {
-            console.log("Js animation");
             overlay.classList.remove("fade");
             overlay.style.opacity = "0.1";
             overlay.style.display = 'block';
@@ -349,7 +343,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 //slider
       
-  let slideIndex = 2,
+  let slideIndex = 1,
       slides = document.querySelectorAll(".slider-item"),
       prev = document.querySelector(".prev"),
       next = document.querySelector(".next"),
@@ -358,13 +352,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
   showSlides(slideIndex);    
   function showSlides(n) {
-    console.log(slideIndex);
     if (n > slides.length) {
       //n = 1;
       slideIndex = 1;
     }
     if (n < 1) {
-      console.log("slideIndex = slides.length");
       slideIndex = slides.length;
       //n = slides.length;
     }
@@ -376,7 +368,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
   function plusSlides(n) {
     slideIndex = slideIndex + n;
-//    console.log("sl = " + slideIndex)
     showSlides(slideIndex);
   };
 
@@ -419,7 +410,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
         pesonsSum =+ this.value;
         total = (daysSum + pesonsSum)*4000;
-        if (restDays.value == "") {
+        if (persons.value == "" || +persons.value == 0 || restDays.value == "" || +restDays.value == 0) {
           totalValue.innerHTML = 0;
         } else {
           totalValue.innerHTML = total;
@@ -427,6 +418,8 @@ window.addEventListener('DOMContentLoaded', () => {
       });
 
       restDays.addEventListener('input', function(e){
+        console.log(restDays.value == 0);
+
         let st = this.value;
         if(!Number.isInteger(+st[st.length-1])) {
           this.value = st.substring(0, st.length-1);
@@ -435,8 +428,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
         daysSum =+ this.value;
         total = (daysSum + pesonsSum)*4000;
-        if (persons.value == "") {
+        if (persons.value == "" || +persons.value == 0 || restDays.value == "" || +restDays.value == 0) {
           totalValue.innerHTML = 0;
+          console.log("Hi");
         } else {
           totalValue.innerHTML = total;
         }
