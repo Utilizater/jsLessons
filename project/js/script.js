@@ -418,8 +418,7 @@ window.addEventListener('DOMContentLoaded', () => {
       });
 
       restDays.addEventListener('input', function(e){
-        console.log(restDays.value == 0);
-
+        
         let st = this.value;
         if(!Number.isInteger(+st[st.length-1])) {
           this.value = st.substring(0, st.length-1);
@@ -430,14 +429,13 @@ window.addEventListener('DOMContentLoaded', () => {
         total = (daysSum + pesonsSum)*4000;
         if (persons.value == "" || +persons.value == 0 || restDays.value == "" || +restDays.value == 0) {
           totalValue.innerHTML = 0;
-          console.log("Hi");
         } else {
           totalValue.innerHTML = total;
         }
       });
 
       place.addEventListener('change', function() {
-        if (restDays.value == "" || persons.value == "") {
+        if (restDays.value == "" || persons.value == "" || +persons.value == 0 || +restDays.value == 0) {
           totalValue.innerHTML = 0;
         } else {
           let a = total; 
