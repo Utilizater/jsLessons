@@ -7,6 +7,10 @@ function calculator() {
     daysSum = 0,
     total = 0;
 
+    function toCount() {
+      return (persons.value + restDays.value) * 4000 * place.options[place.selectedIndex].value;
+    }
+
   totalValue.innerHTML = total;
 
   persons.addEventListener('input', function (e) {
@@ -17,7 +21,7 @@ function calculator() {
     }
 
     pesonsSum = +this.value;
-    total = (daysSum + pesonsSum) * 4000;
+    total = toCount();
     if (persons.value == "" || +persons.value == 0 || restDays.value == "" || +restDays.value == 0) {
       totalValue.innerHTML = 0;
     } else {
@@ -34,7 +38,7 @@ function calculator() {
     }
 
     daysSum = +this.value;
-    total = (daysSum + pesonsSum) * 4000;
+    total = toCount();
     if (persons.value == "" || +persons.value == 0 || restDays.value == "" || +restDays.value == 0) {
       totalValue.innerHTML = 0;
     } else {
@@ -46,8 +50,8 @@ function calculator() {
     if (restDays.value == "" || persons.value == "" || +persons.value == 0 || +restDays.value == 0) {
       totalValue.innerHTML = 0;
     } else {
-      let a = total;
-      totalValue.innerHTML = a * this.options[this.selectedIndex].value;
+//      let a = total;
+      totalValue.innerHTML = toCount();
     }
   });
 };
